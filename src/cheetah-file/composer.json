@@ -1,0 +1,29 @@
+{
+    "name": "cheetah/cheetah-file",
+    "description": "一个协程化的PHP高性能框架 - File",
+    "license": "MIT",
+    "keywords": [
+        "php",
+        "swoole",
+        "cheetah",
+        "microservice",
+        "coroutine"
+    ],
+    "homepage": "https://cheetah.io",
+    "support": {
+        "docs": "https://wiki.cheetah.wiki",
+        "issues": "https://github.com/eicesoft/cheetah/issues",
+        "source": "https://github.com/eicesoft/cheetah"
+    },
+    "require": {
+        "ext-pdo": "*",
+        "psr/container": "^1.0"
+    },
+    "autoload": {
+        "psr-4": {
+            "Cheetah\\File": "src/"
+        }
+    },
+    "minimum-stability": "dev",
+    "prefer-stable": true
+}

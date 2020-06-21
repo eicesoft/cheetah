@@ -1,0 +1,36 @@
+{
+    "name": "cheetah/cheetah-config",
+    "description": "一个协程化的PHP高性能框架 - config",
+    "license": "MIT",
+    "keywords": [
+        "php",
+        "swoole",
+        "cheetah",
+        "config",
+        "microservice",
+        "coroutine"
+    ],
+    "homepage": "https://cheetah.io",
+    "support": {
+        "docs": "https://wiki.cheetah.wiki",
+        "issues": "https://github.com/eicesoft/cheetah/issues",
+        "source": "https://github.com/eicesoft/cheetah"
+    },
+    "require": {
+        "ext-pdo": "*",
+        "psr/http-server-handler": "^1.0",
+        "psr/container": "^1.0",
+        "psr/http-message": "^1.0",
+        "psr/http-server-middleware": "^1.0",
+        "psr/log": "^1.1",
+        "psr/event-dispatcher": "^1.0",
+        "php-di/php-di": "^6.2"
+    },
+    "autoload": {
+        "psr-4": {
+            "Cheetah\\": "src/"
+        }
+    },
+    "minimum-stability": "dev",
+    "prefer-stable": true
+}
