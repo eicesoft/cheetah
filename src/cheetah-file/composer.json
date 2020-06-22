@@ -21,7 +21,7 @@
     },
     "autoload": {
         "psr-4": {
-            "Cheetah\\File": "src/"
+            "Cheetah\\File\\": "src/"
         }
     },
     "minimum-stability": "dev",

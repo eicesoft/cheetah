@@ -1,6 +1,4 @@
 <?php
-
-use Cheetah\Container;
 use DI\ContainerBuilder;
 
 ini_set('display_errors', 'on');
@@ -51,7 +49,6 @@ class UserManager
     }
 }
 
-
 include 'vendor/autoload.php';
 $builder = new ContainerBuilder();
 $builder->useAutowiring(true);
@@ -61,8 +58,7 @@ try {
     $container = $builder->build();
 //    var_dump($container);
     $userManager = $container->get('UserManager');
-    $x = $container->get(Container::class);
-    var_dump($x);
+    var_dump($container);
     $userManager->register("eicesoft@126.com");
 } catch (Exception $e) {
     var_dump($e);
