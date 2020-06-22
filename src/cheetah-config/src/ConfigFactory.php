@@ -8,6 +8,10 @@ use Psr\Container\ContainerInterface;
 
 class ConfigFactory
 {
+    /**
+     * @param ContainerInterface $container
+     * @return Config
+     */
     public function __invoke(ContainerInterface $container)
     {
         $configPath = BASE_PATH . '/configs/';
@@ -15,8 +19,7 @@ class ConfigFactory
 //        $autoloadConfig = $this->readPaths([BASE_PATH . '/config/autoload']);
         $config = $this->readPaths($configPath);
         $merged = array_merge_recursive( ...$config);
-        var_dump($merged);
-        return new Config($config);
+        return new Config($merged);
     }
 
 
@@ -39,8 +42,9 @@ class ConfigFactory
         $finder = new Finder($path);
         $files = $finder->scan(Finder::FILTER_FILE);
         foreach ($files as $file) {
-            echo basename($file);
-            $configs[] = require $file;
+            $file_name = basename($file);
+            list($module) = explode('.', $file_name, 2);
+            $configs[] = [$module => require $file];
         }
 
         return $configs;

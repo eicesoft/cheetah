@@ -1,6 +1,6 @@
 {
-    "name": "cheetah/cheetah-server",
-    "description": "一个协程化的PHP高性能框架 - Server",
+    "name": "cheetah/cheetah-util",
+    "description": "一个协程化的PHP高性能框架 - util",
     "authors": [
         {
             "name": "kelezyb",
@@ -13,7 +13,7 @@
         "php",
         "swoole",
         "cheetah",
-        "server",
+        "util",
         "microservice",
         "coroutine"
     ],
@@ -38,7 +38,7 @@
     },
     "autoload": {
         "psr-4": {
-            "Cheetah\\Server\\": "src/"
+            "Cheetah\\Util\\": "src/"
         }
     },
     "minimum-stability": "dev",

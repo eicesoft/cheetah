@@ -5,6 +5,11 @@ namespace Cheetah\Config;
 
 class Config implements ConfigInterface
 {
+    private $config;
+    public function __construct($config)
+    {
+        $this->config = $config;
+    }
 
     public function get(string $key, $default = null)
     {

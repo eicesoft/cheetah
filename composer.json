@@ -31,21 +31,26 @@
         "psr/http-server-middleware": "^1.0",
         "psr/log": "^1.1",
         "psr/event-dispatcher": "^1.0",
-        "php-di/php-di": "^6.2"
-
+        "php-di/php-di": "^6.2",
+        "ocramius/proxy-manager": "^2.8"
+    },
+    "require-dev": {
+        "doctrine/annotations": "~1.2"
     },
     "replace": {
         "cheetah/core": "self.version",
         "cheetah/server": "self.version",
         "cheetah/file": "self.version",
-        "cheetah/config": "self.version"
+        "cheetah/config": "self.version",
+        "cheetah/util": "self.version"
     },
     "autoload": {
         "psr-4": {
             "Cheetah\\": "src/cheetah-core/src/",
             "Cheetah\\Server\\": "src/cheetah-server/src/",
             "Cheetah\\File\\": "src/cheetah-file/src/",
-            "Cheetah\\Config\\": "src/cheetah-config/src/"
+            "Cheetah\\Config\\": "src/cheetah-config/src/",
+            "Cheetah\\Util\\": "src/cheetah-util/src/"
         }
     },
     "minimum-stability": "dev",
