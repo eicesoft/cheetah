@@ -1,5 +1,6 @@
 <?php
 declare(strict_types=1);
+
 namespace Cheetah\File;
 
 
@@ -33,7 +34,6 @@ class Finder
      */
     private function get_files($dir, $mode)
     {
-        $dir = realpath($dir);
         $dh = opendir($dir);
         if (!$dh) {
             return [];
@@ -83,7 +83,7 @@ class Finder
      * @param array $disable_dirs
      * @return Finder
      */
-    public function ignore_dir(array $ignore_dirs): void
+    public function ignore_dir(array $ignore_dirs): Finder
     {
         $this->ignore_dirs = $ignore_dirs;
         return $this;

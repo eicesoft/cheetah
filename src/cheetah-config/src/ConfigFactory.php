@@ -3,17 +3,20 @@ declare(strict_types=1);
 namespace Cheetah\Config;
 
 
+use Cheetah\File\Finder;
 use Psr\Container\ContainerInterface;
 
 class ConfigFactory
 {
     public function __invoke(ContainerInterface $container)
     {
-        $configPath = BASE_PATH . '/config/';
-        $config = $this->readConfig($configPath . 'config.php');
-        $autoloadConfig = $this->readPaths([BASE_PATH . '/config/autoload']);
-        $merged = array_merge_recursive(ProviderConfig::load(), $config, ...$autoloadConfig);
-        return new Config($merged);
+        $configPath = BASE_PATH . '/configs/';
+//        $config = $this->readConfig($configPath . 'config.php');
+//        $autoloadConfig = $this->readPaths([BASE_PATH . '/config/autoload']);
+        $config = $this->readPaths($configPath);
+        $merged = array_merge_recursive( ...$config);
+        var_dump($merged);
+        return new Config($config);
     }
 
 
@@ -27,19 +30,19 @@ class ConfigFactory
     }
 
     /**
-     * @param array $paths
+     * @param string $paths
      * @return array
      */
-    private function readPaths(array $paths)
+    private function readPaths(string $path)
     {
         $configs = [];
-//        $finder = new Finder();
-//        $finder->files()->in($paths)->name('*.php');
-//        foreach ($finder as $file) {
-//            $configs[] = [
-//                $file->getBasename('.php') => require $file->getRealPath(),
-//            ];
-//        }
+        $finder = new Finder($path);
+        $files = $finder->scan(Finder::FILTER_FILE);
+        foreach ($files as $file) {
+            echo basename($file);
+            $configs[] = require $file;
+        }
+
         return $configs;
     }
 }

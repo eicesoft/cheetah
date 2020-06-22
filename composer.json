@@ -1,5 +1,6 @@
 {
     "name": "cheetah/cheetah",
+    "version": "1.0.0.1",
     "description": "一个协程化的PHP高性能框架",
     "authors": [
         {
