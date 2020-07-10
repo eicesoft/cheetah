@@ -1,5 +1,4 @@
 <?php
-
 namespace Cheetah\Util;
 
 
@@ -49,6 +48,11 @@ class Arr
         return true;
     }
 
+    /**
+     * @param array $array
+     * @param string $key
+     * @return bool
+     */
     public static function exists($array, $key): bool
     {
         if ($array instanceof ArrayAccess) {

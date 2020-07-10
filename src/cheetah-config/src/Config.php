@@ -3,26 +3,29 @@ declare(strict_types=1);
 namespace Cheetah\Config;
 
 
+use Cheetah\Util\Arr;
+use function Cheetah\Util\data_get;
+
 class Config implements ConfigInterface
 {
-    private $config;
-    public function __construct($config)
+    private $configs;
+    public function __construct($configs)
     {
-        $this->config = $config;
+        $this->configs = $configs;
     }
 
     public function get(string $key, $default = null)
     {
-        // TODO: Implement get() method.
+        return data_get($this->configs, $key, $default);
     }
 
-    public function has(string $keys)
+    public function has(string $key)
     {
-        // TODO: Implement has() method.
+        return Arr::has($this->configs, $key);
     }
 
     public function set(string $key, $value)
     {
-        // TODO: Implement set() method.
+
     }
 }
